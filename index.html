@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>STEGOTRON</title>
+
+    
+
+    <!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <link href="css/cover.css" rel="stylesheet">
+    <script src="js/p5.js"></script>
+  
+
+  </head>
+  <body class="d-flex h-100 text-center text-black bg-white" >
+    
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+    <div>
+      <h3 class="float-md-start mb-0">STEGOTRON</h3>
+      <nav class="nav nav-masthead justify-content-center float-md-end">
+        <a class="nav-link active" aria-current="page" href="#">Encoder</a>
+        <a class="nav-link declink" href="#">Decoder</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="px-3 encoder">
+    <script src="js/steganolor.js"></script>
+    <div class="mb-3">
+      <label for="inText" class="form-label">INPUT</label>
+      <textarea id="inText" class="form-control" aria-label="textarea" style="resize: none;" maxlength=100 onkeyup="this.value=this.value.replace(/[\\^_`\[\]]/g, '')"></textarea>
+
+      
+    </div>
+
+   
+    <h2 class="boardKey">KEY:</h2>
+    <div class="board">
+        <div class="switch" id="sw-red">
+            <div class="button" id="red">
+            </div>
+        </div>
+
+        <div class="switch" id="sw-blue">
+            <div class="button" id="blue">
+            </div>
+        </div>
+
+        <div class="switch" id="sw-green">
+            <div class="button" id="green">
+            </div>
+        </div>
+
+        <div class="switch" id="sw-yellow">
+            <div class="button" id="yellow">
+            </div>
+        </div>
+        
+    </div>
+   
+  </main>
+</div>
+
+
+  <script>
+    //var buttons = document.querySelectorAll('.button');
+    const re = document.querySelector('#red')
+    const blu = document.querySelector('#blue')
+    const yello = document.querySelector('#yellow')
+    const gree = document.querySelector('#green')
+
+
+    document.body.addEventListener('click', event => {
+      if (event.target === re) {
+        mouseClick(re, 0);
+      }else  if (event.target === blu) {
+        mouseClick(blu,1);
+      }else if (event.target === yello) {
+        mouseClick(yello,3);
+      }else if (event.target === gree) {
+        mouseClick(gree,2);
+      }else{
+        return;
+      }
+
+      document.querySelector('h2').innerHTML=getKey();
+    })
+
+
+    function updateHTML(elmId, value) {
+      var elem = document.getElementById(elmId);
+      if(typeof elem !== 'undefined' && elem !== null) {
+        elem.innerHTML = value;
+      }
+    }
+
+  </script>
+  </body>
+</html>
