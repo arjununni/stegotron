@@ -52,10 +52,10 @@ function mouseClick(button, ind){
 function getKey(){
   stri = 'KEY: ';
 
-  stri += toggled[0];
-  stri += toggled[1];
-  stri += toggled[2];
   stri += toggled[3];
+  stri += toggled[2];
+  stri += toggled[1];
+  stri += toggled[0];
 
   
   return stri;

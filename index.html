@@ -50,7 +50,10 @@
 
   <main class="px-3 encoder">
     <script src="js/steganolor.js"></script>
+    <p>Press SHIFT to switch between Text and Code.</p>
+
     <div class="mb-3">
+
       <label for="inText" class="form-label">INPUT</label>
       <textarea id="inText" class="form-control" aria-label="textarea" style="resize: none;" maxlength=100 onkeyup="this.value=this.value.replace(/[\\^_`\[\]]/g, '')"></textarea>
 
@@ -109,7 +112,6 @@
 
       document.querySelector('h2').innerHTML=getKey();
     })
-
 
     function updateHTML(elmId, value) {
       var elem = document.getElementById(elmId);
